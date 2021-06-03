@@ -1,0 +1,97 @@
+﻿
+//1.Extend the Prime Factorization Program to store all the Prime Factors of a
+number n into an array and finally display the output.
+function getPrimeFactors(integer) {
+    let primeArray = [];
+    let isPrime;
+  
+  for (let i = 2; i <= integer; i++) {
+  if (integer % i !== 0) continue;
+  
+  for (let j = 2; j <= i / 2; j++) {
+    isPrime = i % j !== 0;
+  }
+  
+  if (!isPrime) continue;
+    integer /= i
+    primeArray.push(i);
+  }
+  
+  return primeArray;
+  }
+  
+  console.log(getPrimeFactors(125));
+
+//2.Write a program in the following steps
+a. Generates 10 Random 3 Digit number.
+b. Store this random numbers into a array.
+c. Then find the 2nd largest and the 2nd smallest element without sorting the array.
+
+let randomNumber = [];
+for (let i = 0; i < 10; i++) {
+  randomNumber[i] = Math.floor(100 + Math.random() * 100);
+  console.log(randomNumber[i]);
+}
+let maximumNumber = Math.max(...randomNumber);
+let minimumNumber = Math.min(...randomNumber);
+
+let maxFiltered = randomNumber.filter((number) => number < maximumNumber);
+let minFiltered = randomNumber.filter((number) => number > minimumNumber);
+
+let secondMax = Math.max(...maxFiltered);
+let secondMin = Math.min(...minFiltered);
+
+console.log(
+  "second maximum = " + secondMax + " and second minimum = " + secondMin);
+
+
+//3.Take a range from 0 – 100, find the digits that are repeated twice like 33, 77,
+etc and store them in an array
+
+var numbers = [];
+for (var i = 0; i <= 100; i++) {
+    if( i != 0) {
+        if(i%11 ==  0) {
+        numbers[i] == i;
+        console.log(i);
+       }
+    }
+}
+
+//4.Write a Program to show Sum of three Integer adds to ZERO
+
+var array = new Array (4,-3,-1);
+
+ for( var i = 0; i <= array.length-1; i++) {
+    for (var j = i+1; j < array.length; j++) {
+        for(var k = 0; k < array.length; k++) {
+            if (array[i]+array[j]+array[k] == 0) {
+                console.log(array[i]+ "+"+array[j]+ "+"+array[k]+"=0");
+             }
+        }
+    }
+}
+
+//5.sort the array and then find the 2nd largest and the 2nd smallest element.
+
+function Second_Greatest_Lowest(arr_num)
+{
+  arr_num.sort(function(x,y)
+           {
+           return x-y;
+           });
+  var number = [arr_num[0]];
+  var result = [];
+  
+  for(var j=1; j < arr_num.length; j++)
+  {
+    if(arr_num[j-1] !== arr_num[j])
+    {
+      number.push(arr_num[j]);
+    }
+  }
+    result.push(number[1],number[number.length-2]);
+  return result.join(',');
+  }
+
+console.log(Second_Greatest_Lowest([1,2,3,4,5]));
